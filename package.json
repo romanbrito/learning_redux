@@ -1,0 +1,29 @@
+{
+  "name": "learning_redux",
+  "version": "1.0.0",
+  "description": "learning redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/babel-node ./src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romanbrito/learning_redux.git"
+  },
+  "keywords": [
+    "redux",
+    "react"
+  ],
+  "author": "roman brito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romanbrito/learning_redux/issues"
+  },
+  "homepage": "https://github.com/romanbrito/learning_redux#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
