@@ -1,15 +1,19 @@
 import C from './constants'
-import {allSkiDays, goal} from './initialState.json'
+import {goal} from './store/reducers'
 
-console.log(`
+const state = 10
 
-Ski Day Counter
-=================
-The goal is ${goal} days
-Initially there are ${allSkiDays.length} ski days in state
+const action = {
+  type: C.SET_GOAL,
+  payload: 15
+}
 
-Constans (actions)
--------------------
-${Object.keys(C).join('\n       ')}
+const nextState = goal(state, action)
+
+console.log (`
+
+initial goal: ${state}
+action: ${JSON.stringify(action)}
+new goal: ${nextState}
 
 `)
