@@ -8,13 +8,14 @@ const state = [
     "powder": true,
     "backcountry": false
   }
+
 ]
 
 const action = {
   type: C.ADD_DAY,
   payload: {
     "resort": "Boreal",
-    "date": "2016-12-16",
+    "date": "2016-13-15",
     "powder": false,
     "backcountry": true
   }
