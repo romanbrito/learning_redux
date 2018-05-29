@@ -1,7 +1,7 @@
 import C from '../constants'
 import {combineReducers} from 'redux'
 
-export const goal = (state = 10, action) =>
+export const goal = (state = 12, action) =>
   (action.type === C.SET_GOAL) ?
     parseInt(action.payload) :
     state

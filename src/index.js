@@ -1,21 +1,47 @@
 import C from './constants'
-import appReducer from './store/reducers'
-import {createStore} from 'redux'  // used to build instances of redux stores
+import storeFactory from './store'
 
-const store = createStore(appReducer) // store manages the state
+const initialState = (localStorage['redux-store']) ?
+  JSON.parse(localStorage['redux-store']) : {}
 
-const unsubscribeGoalLogger = store.subscribe(() => console.log(`  Goal: ${store.getState().goal}`))
-// Well every time we call store.subscribe, it returns a function that can be used to unsubscribe that particular method.
 
-setInterval(() => {
+const saveState = () => {
+  const state = JSON.stringify(store.getState())
+  localStorage['redux-store'] = state
+}
 
-  store.dispatch({
-    type: C.SET_GOAL,
-    payload: Math.floor(Math.random()* 100)
-  })
+const store = storeFactory(initialState)
 
-}, 250)
+store.subscribe(saveState)
 
-setTimeout(() => {
-  unsubscribeGoalLogger()
-}, 3000)
+store.dispatch({
+  type: C.ADD_DAY,
+  payload: {
+    "resort": "Mt Shasta",
+    "date": "2016-100-28",
+    "powder": true,
+    "backcountry": true
+  }
+})
+
+store.dispatch({
+  type: C.ADD_DAY,
+  payload: {
+    "resort": "Squaw Valley",
+    "date": "2016-3-28",
+    "powder": true,
+    "backcountry": false
+  }
+})
+
+store.dispatch({
+  type: C.ADD_DAY,
+  payload: {
+    "resort": "The Canyons",
+    "date": "2016-1-2",
+    "powder": false,
+    "backcountry": false
+  }
+})
+// store will load state from localstorage and everytime it dispatch an action
+// it will save that state.  Plus the store has a middleware associated with it
