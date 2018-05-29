@@ -2,33 +2,20 @@ import C from './constants'
 import appReducer from './store/reducers'
 import {createStore} from 'redux'  // used to build instances of redux stores
 
-const initialState = (localStorage['redux-store']) ? JSON.parse(localStorage['redux-store']) :
-  {}
+const store = createStore(appReducer) // store manages the state
 
-const store = createStore(appReducer, initialState) // store manages the state
+const unsubscribeGoalLogger = store.subscribe(() => console.log(`  Goal: ${store.getState().goal}`))
+// Well every time we call store.subscribe, it returns a function that can be used to unsubscribe that particular method.
 
-// window.store = store
-// to expose store to the console
+setInterval(() => {
 
-store.subscribe(() => console.log(store.getState()))
+  store.dispatch({
+    type: C.SET_GOAL,
+    payload: Math.floor(Math.random()* 100)
+  })
 
-store.subscribe(() => {
-  const state = JSON.stringify(store.getState())
-  localStorage['redux-store'] = state
-})
+}, 250)
 
-// dispatch actions that mutate the state
-store.dispatch({
-  type: C.ADD_DAY,
-  payload: {
-    "resort": "Mt Shasta",
-    "date": "2016-10-28",
-    "powder": false,
-    "backcountry": true
-  }
-})
-
-store.dispatch({
-  type: C.SET_GOAL,
-  payload: 2
-})
+setTimeout(() => {
+  unsubscribeGoalLogger()
+}, 3000)
