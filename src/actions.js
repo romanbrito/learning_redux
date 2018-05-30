@@ -1,4 +1,5 @@
 import C from './constants'
+import {suggestions} from "./store/reducers";
 
 export function addDay(resort, date, powder=false, backcountry=false) {
 // Add app logic here
@@ -23,3 +24,26 @@ export const setGoal = goal =>
     payload: goal
   })
 // different ways of declaring functions
+
+export const addError = message =>
+  ({
+    type: C.ADD_ERROR,
+    payload: message
+  })
+
+export const clearError = index =>
+  ({
+    type: C.CLEAR_ERROR,
+    payload: index
+  })
+
+export const changeSuggestions = suggestions =>
+  ({
+    type: C.CHANGE_SUGGESTIONS,
+    payload: suggestions
+  })
+
+export const clearSuggestions = () =>
+  ({
+    type: C.CLEAR_SUGGESTIONS
+  })
