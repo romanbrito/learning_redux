@@ -1,47 +1,16 @@
-import C from './constants'
 import storeFactory from './store'
+import { addDay, removeDay, setGoal } from './actions'
+// action creators are functions that encapsulate the logic of the app
+const store = storeFactory()
 
-const initialState = (localStorage['redux-store']) ?
-  JSON.parse(localStorage['redux-store']) : {}
+store.dispatch(
+  addDay("Heavenly", "2016-12-22")
+)
 
+store.dispatch(
+  removeDay("2016-12-22")
+)
 
-const saveState = () => {
-  const state = JSON.stringify(store.getState())
-  localStorage['redux-store'] = state
-}
-
-const store = storeFactory(initialState)
-
-store.subscribe(saveState)
-
-store.dispatch({
-  type: C.ADD_DAY,
-  payload: {
-    "resort": "Mt Shasta",
-    "date": "2016-100-28",
-    "powder": true,
-    "backcountry": true
-  }
-})
-
-store.dispatch({
-  type: C.ADD_DAY,
-  payload: {
-    "resort": "Squaw Valley",
-    "date": "2016-3-28",
-    "powder": true,
-    "backcountry": false
-  }
-})
-
-store.dispatch({
-  type: C.ADD_DAY,
-  payload: {
-    "resort": "The Canyons",
-    "date": "2016-1-2",
-    "powder": false,
-    "backcountry": false
-  }
-})
-// store will load state from localstorage and everytime it dispatch an action
-// it will save that state.  Plus the store has a middleware associated with it
+store.dispatch(
+  setGoal(55)
+)
