@@ -1,0 +1,80 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add React
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\giga1\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Common Files\NeatReceipts\Drivers\M12;C:\Program Files\Git\cmd;C:\Program Files\Cloud Foundry;C:\Program Files (x86)\Yarn\bin;C:\wamp64\bin\php\php5.6.25;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Brackets\command;C:\ProgramData\chocolatey\bin;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files (x86)\Common Files\Intuit\QBPOSSDKRuntime;C:\Users\giga1\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Users\giga1\AppData\Local\Programs\Python\Python36-32;C:\Users\giga1\AppData\Local\atom\bin;C:\Program Files (x86)\HMA! Pro VPN\bin;C:\Program Files\Heroku\bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Users\giga1\AppData\Local\Yarn\bin;C:\Users\giga1\AppData\Local\.meteor;C:\Users\giga1\AppData\Roaming\Composer\vendor\bin;C:\Program Files\Docker Toolbox;C:\Users\giga1\AppData\Roaming\npm;C:\Program Files\Microsoft VS Code\bin;C:\Users\giga1\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\giga1\AppData\Local\Microsoft\WindowsApps
+
+Yarn version: 
+  0.24.6
+
+Node version: 
+  8.9.1
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "learning_redux",
+    "version": "1.0.0",
+    "description": "learning redux",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "./node_modules/.bin/webpack-dev-server",
+      "suggestions": "./node_modules/.bin/babel-node ./server --port 3333 --delay 500"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/romanbrito/learning_redux.git"
+    },
+    "keywords": [
+      "redux",
+      "react"
+    ],
+    "author": "roman brito",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/romanbrito/learning_redux/issues"
+    },
+    "homepage": "https://github.com/romanbrito/learning_redux#readme",
+    "devDependencies": {
+      "babel-cli": "^6.26.0",
+      "babel-core": "^6.26.3",
+      "babel-loader": "^7.1.4",
+      "babel-preset-latest": "^6.24.1",
+      "babel-preset-stage-0": "^6.24.1",
+      "expect": "^23.0.1",
+      "json-loader": "^0.5.7",
+      "webpack": "^4.10.1",
+      "webpack-cli": "^2.1.4",
+      "webpack-dev-server": "^3.1.4"
+    },
+    "dependencies": {
+      "cors": "^2.8.4",
+      "express": "^4.16.3",
+      "isomorphic-fetch": "^2.2.1",
+      "minimist": "^1.2.0",
+      "redux": "^4.0.0",
+      "redux-thunk": "^2.3.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://registry.yarnpkg.com/React: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\yarn-cli.js:56255:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\yarn-cli.js:107854:22)
+      at emitTwo (events.js:126:13)
+      at Request.emit (events.js:214:7)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\yarn-cli.js:108837:10)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\yarn-cli.js:108757:12)
+      at Object.onceWrapper (events.js:313:30)
+      at emitNone (events.js:111:20)

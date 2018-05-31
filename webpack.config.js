@@ -18,8 +18,22 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: { // which presets to use to transpile
-          presets: ['latest', 'stage-0']
+          presets: ['env', 'latest', 'stage-0', 'react']
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "style-loader" // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader" // translates CSS into CommonJS
+          },
+          {
+            loader: "sass-loader" // compiles Sass to CSS
+          }
+        ]
       }
     ]
   }// JSON files will work by default
