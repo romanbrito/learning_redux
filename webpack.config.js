@@ -4,7 +4,7 @@ module.exports = {
   output: {
     path: "/dist/assets",
     filename: "bundle.js",
-    publicPath: "assets"
+    publicPath: "/assets"
   },
   devServer: {
     inline: true, // use client entry point so we can browse on localhost

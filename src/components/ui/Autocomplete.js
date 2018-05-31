@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import Downloading from 'react-icons/lib/fa/cloud-download'
 
 class Autocomplete extends Component {
