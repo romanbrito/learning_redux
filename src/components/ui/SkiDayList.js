@@ -1,5 +1,6 @@
+import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import SkiDayRow from './SkiDayRow'
 import Terrain from 'react-icons/lib/md/terrain'
 import SnowFlake from 'react-icons/lib/ti/weather-snow'
@@ -30,8 +31,8 @@ const SkiDayList = ({ days, filter, onRemoveDay=f=>f }) => {
                 <tr>
                     <td colSpan={4}>
                         <Link to="/list-days" style={(!filter) ? activeFilterStyle : null}>All Days</Link>
-                        <Link to="/list-days/powder" activeStyle={activeFilterStyle}>Powder Days</Link>
-                        <Link to="/list-days/backcountry" activeStyle={activeFilterStyle}>Backcountry Days</Link>
+                        <Link to="/list-days/powder" activestyle={activeFilterStyle}>Powder Days</Link>
+                        <Link to="/list-days/backcountry" activestyle={activeFilterStyle}>Backcountry Days</Link>
                     </td>
                 </tr>
                 </thead>

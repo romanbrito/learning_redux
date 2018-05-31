@@ -1,15 +1,11 @@
 import React from 'react'
 import Menu from './ui/Menu'
-import ShowErrors from './containers/ShowErrors'
-import GoalProgress from './containers/GoalProgress'
-import SkiDayCount from './containers/SkiDayCount'
+import Main from '../Main'
 import '../stylesheets/index.scss'
 
-export const App = ({children}) =>
+export const App = () =>
   <div className="app">
-    <ShowErrors/>
-    <SkiDayCount/>
-    <GoalProgress/>
+    <Main/>
     <Menu/>
   </div>
 

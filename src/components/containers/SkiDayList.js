@@ -1,3 +1,4 @@
+import React from 'react'
 import SkiDayList from '../ui/SkiDayList'
 
 const sample = [
@@ -23,5 +24,5 @@ const sample = [
 
 export default (props) =>
     <SkiDayList days={sample}
-                filter={props.params.filter}
+                filter={props.match.params.filter}
                 onRemoveDay={date => console.log('remove day on', date)} />

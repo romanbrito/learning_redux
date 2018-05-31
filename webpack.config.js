@@ -9,7 +9,8 @@ module.exports = {
   devServer: {
     inline: true, // use client entry point so we can browse on localhost
     contentBase: "./dist", // where to serve content from
-    port: 3000 //localhost:3000
+    port: 3000, //localhost:3000
+    historyApiFallback: true
   },
   module: { // instructions on how to transpile code that goes into bundle.js
     rules: [

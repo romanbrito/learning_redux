@@ -2,11 +2,11 @@ import C from './constants'
 import ReactDOM from 'react-dom'
 import React from 'react'
 import {BrowserRouter} from 'react-router-dom'
-import Routes from './routes'
 import sampleData from './initialState.json'
 import storeFactory from './store'
 import {Provider} from 'react-redux' // to pass store to the component tree
 import {addError} from "./actions";
+import {App} from './components'
 
 const initialState = (localStorage["redux-store"]) ?
   JSON.parse(localStorage["redux-store"]) :
@@ -32,7 +32,7 @@ window.addEventListener("error", handleError)
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Routes/>
+      <App/>
     </BrowserRouter>
   </Provider>,
   document.getElementById('react-container')
