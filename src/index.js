@@ -6,6 +6,7 @@ import Routes from './routes'
 import sampleData from './initialState.json'
 import storeFactory from './store'
 import {Provider} from 'react-redux' // to pass store to the component tree
+import {addError} from "./actions";
 
 const initialState = (localStorage["redux-store"]) ?
   JSON.parse(localStorage["redux-store"]) :
@@ -14,11 +15,19 @@ const initialState = (localStorage["redux-store"]) ?
 const saveState = () =>
   localStorage["redux-store"] = JSON.stringify(store.getState())
 
+const handleError = error => {
+  store.dispatch(
+    addError(error.message)
+  )
+}
+
 const store = storeFactory(initialState)
 store.subscribe(saveState)
 
 // window.React = React
 window.store = store
+
+window.addEventListener("error", handleError)
 
 ReactDOM.render(
   <Provider store={store}>
@@ -28,3 +37,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('react-container')
 )
+
+// uncomment below to produce error
+// foo =bar
