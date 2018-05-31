@@ -1,5 +1,6 @@
 import C from '../constants'
 import appReducer from './reducers'
+import thunk from 'redux-thunk'
 import {createStore, applyMiddleware} from 'redux'
 
 // middleware higher order function that deals with asynchronisity
@@ -37,5 +38,5 @@ const consoleMessages = store => next => action => {
 
 // returns a store that was created with the middleware consoleMessages
 export default (initialState={}) => {
- return applyMiddleware(consoleMessages)(createStore)(appReducer, initialState)
+ return applyMiddleware(thunk, consoleMessages)(createStore)(appReducer, initialState)
 }

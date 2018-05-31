@@ -1,12 +1,12 @@
 import C from './constants'
 import {suggestions} from "./store/reducers";
 
-export function addDay(resort, date, powder=false, backcountry=false) {
+export function addDay(resort, date, powder = false, backcountry = false) {
 // Add app logic here
 
   return {
     type: C.ADD_DAY,
-    payload: {resort,date,powder,backcountry}
+    payload: {resort, date, powder, backcountry}
   }
 }
 
@@ -47,3 +47,21 @@ export const clearSuggestions = () =>
   ({
     type: C.CLEAR_SUGGESTIONS
   })
+
+// thunk
+export const randomGoals = () => (dispatch, getState) => {
+
+  if (!getState().resortNames.fetching) {
+    dispatch({
+      type: C.FETCH_RESORT_NAMES
+    })
+
+    setTimeout(() => {
+      dispatch({
+        type: C.CANCEL_FETCHING
+      })
+    }, 1500)
+
+  }
+
+}
