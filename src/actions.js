@@ -1,5 +1,6 @@
 import C from './constants'
-import {suggestions} from "./store/reducers";
+import fetch from 'isomorphic-fetch'
+import {suggestions} from "./store/reducers"; //fetch implementation that works in node and browser
 
 export function addDay(resort, date, powder = false, backcountry = false) {
 // Add app logic here
@@ -49,19 +50,29 @@ export const clearSuggestions = () =>
   })
 
 // thunk
-export const randomGoals = () => (dispatch, getState) => {
+export const suggestResortNames = value => (dispatch) => {
 
-  if (!getState().resortNames.fetching) {
-    dispatch({
-      type: C.FETCH_RESORT_NAMES
+  dispatch({
+    type: C.FETCH_RESORT_NAMES
+  })
+
+  fetch('http://localhost:3333/resorts/' + value)
+    .then(response => response.json())
+    .then(suggestions => {
+
+      dispatch({
+        type: C.CHANGE_SUGGESTIONS,
+        payload: suggestions
+      })
     })
+    .catch(error => {
+      dispatch(
+        addError(error.message)
+      )
 
-    setTimeout(() => {
       dispatch({
         type: C.CANCEL_FETCHING
       })
-    }, 1500)
-
-  }
+    })
 
 }
